@@ -141,6 +141,21 @@ public class ManageStudent {
         return students;
 
     }
+    //11) create 2classes od students, 3 students per class
+    public static void manageStudent(Student[] students){
+        Student[][] classStudent=new Student[2][3];
+        for(int i=0;i<3;i++){
+            classStudent[0][i]=students[i];
+            classStudent[1][i]=students[5-i];
+        }
+
+        for(int i=0;i<2;i++){
+            System.out.println("class"+(i+1));
+            for(int j=0;j<3;j++){
+                System.out.println(classStudent[i][j].getName());
+            }
+        }
+    }
 
     // 1) Create an Array of Students + demos for all tasks
     public static void main(String[] args) {
@@ -153,6 +168,7 @@ public class ManageStudent {
         arr[2] = new Student(3, "Michael", 22, 18); // id, name, age, grade
         arr[3] = new Student(4, "Sarah", 19);       // another with 3 args
         arr[4] = new Student(5, "David", 21, 15);   // another with 4 args
+
 
 
         // Print all
@@ -194,6 +210,16 @@ public class ManageStudent {
         System.out.println(hasDuplicateNames(arr));
         // 10) Append new student
         appendStudent(arr,new Student(6,"Alice"));
+        //11)
+        Student[] students_ = new Student[6]; // because your code uses indices 0..5
+
+        students_[0] = new Student(8,"Alice");
+        students_[1] = new Student(9,"Bob");
+        students_[2] = new Student(10,"Charlie");
+        students_[3] = new Student(11,"David");
+        students_[4] = new Student(12,"Eva");
+        students_[5] = new Student(13,"Frank");
+        manageStudent(students_);
 
     }
 }
